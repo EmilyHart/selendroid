@@ -221,7 +221,7 @@ public class SelendroidServerBuilder {
         new ZipFile(new File(tempdir.getAbsolutePath() + File.separatorChar + "manifest.apk"));
     ZipArchiveEntry binaryManifestXml = manifestApk.getEntry("AndroidManifest.xml");
 
-    File finalSelendroidServerFile = new File(tempdir.getAbsolutePath() + "-selendroid-server.apk");
+    File finalSelendroidServerFile = new File(tempdir.getAbsolutePath() + "selendroid-server.apk");
 
     ZipArchiveOutputStream finalSelendroidServer =
         new ZipArchiveOutputStream(finalSelendroidServerFile);
