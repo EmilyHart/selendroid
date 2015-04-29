@@ -95,7 +95,7 @@ public class SelendroidServerBuilder {
 
   /* package */void init(AndroidApp aut) throws IOException, ShellCommandException {
     applicationUnderTest = aut;
-    File customizedServer = File.createTempFile("NADA1-selendroid-server", ".apk");
+    File customizedServer = File.createTempFile("selendroid-server", ".apk");
       if(serverConfiguration != null && serverConfiguration.isDeleteTmpFiles()) {
           customizedServer.deleteOnExit(); //Deletes temporary files created
       }
@@ -115,11 +115,11 @@ public class SelendroidServerBuilder {
     cleanUpPrebuildServer();
     File selendroidServer = createAndAddCustomizedAndroidManifestToSelendroidServer();
     File outputFile =
-        new File(FileUtils.getTempDirectory(), String.format("NADA2-selendroid-server-%s-%s.apk",
+        new File(FileUtils.getTempDirectory(), String.format("selendroid-server-%s-%s.apk",
                                                              applicationUnderTest.getBasePackage(),
                                                              getJarVersionNumber()));
       if(serverConfiguration != null && serverConfiguration.isDeleteTmpFiles()) {
-          outputFile.deleteOnExit(); //Deletes temporary files
+          outputFile.deleteOnExit(); //Deletes file when done
       }
     return signTestServer(selendroidServer, outputFile);
   }
@@ -221,7 +221,7 @@ public class SelendroidServerBuilder {
         new ZipFile(new File(tempdir.getAbsolutePath() + File.separatorChar + "manifest.apk"));
     ZipArchiveEntry binaryManifestXml = manifestApk.getEntry("AndroidManifest.xml");
 
-    File finalSelendroidServerFile = new File(tempdir.getAbsolutePath() + "NADA3-selendroid-server.apk");
+    File finalSelendroidServerFile = new File(tempdir.getAbsolutePath() + "-selendroid-server.apk");
 
     ZipArchiveOutputStream finalSelendroidServer =
         new ZipArchiveOutputStream(finalSelendroidServerFile);

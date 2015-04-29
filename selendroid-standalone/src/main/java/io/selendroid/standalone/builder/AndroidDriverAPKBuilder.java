@@ -29,7 +29,7 @@ public class AndroidDriverAPKBuilder {
         SelendroidServerBuilder.getJarVersionNumber() + ".apk");
 
     try {
-      File tmpAndroidDriver = File.createTempFile("NADA4-android-driver", ".apk");
+      File tmpAndroidDriver = File.createTempFile("android-driver", ".apk");
       IOUtils.copy(is, new FileOutputStream(tmpAndroidDriver));
       IOUtils.closeQuietly(is);
       return tmpAndroidDriver;
